@@ -132,16 +132,14 @@ Vim自带一个交互式的教程,内含你需要了解的最基础的信息,你
 $ vimtutor
 ```
 
-Don't be put off by how boring it looks like and work through the exercises. The
-editors or IDEs you used before were most probably all non-modal, so working by
-switching modes will seem awkward at first, but the more you use Vim, the more
-it becomes [muscle memory](https://en.wikipedia.org/wiki/Muscle_memory).
+不要因为这个看上去很无聊而推迟，按照此教程多练习。你以前用的IDEs或者其他编辑器大多数都是无模式的。
+因此一开始在模式之间切换将会看上去很笨拙。但是你使用VIM越多，
+[肌肉记忆](https://en.wikipedia.org/wiki/Muscle_memory)将更加强大。
 
-Vim was bolted on [Stevie](https://en.wikipedia.org/wiki/Stevie_(text_editor)), a
-[vi](https://en.wikipedia.org/wiki/Vi) clone, and supports two operating modes:
-"compatible" and "nocompatible". Using Vim in compatible mode means using vi
-defaults for all options, opposed to Vim defaults. As long as you didn't create
-a user vimrc yet or started Vim with `vim -N`, compatible mode is assumed! Don't
+Vim 基于 [Stevie](https://en.wikipedia.org/wiki/Stevie_(text_editor)), a
+[vi](https://en.wikipedia.org/wiki/Vi) 克隆, 支持两种操作模式:
+"compatible" 和 "nocompatible". 使用compatible 模式 vim 意味着 使用vi默认设置
+, 相对于VIM 默认设置. 只要你没有新建一个用户的vimrc 或者使用 `vim -N` 命令启动VIM ， compatible 模式将被使用! Don't
 use Vim in compatible mode. Just don't.
 
 Next steps:
