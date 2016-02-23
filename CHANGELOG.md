@@ -4,14 +4,17 @@ All notable changes to this project will be documented in this file.
 
 ## [Unreleased]
 
+## [1.2] - 2016-02-08
+
 ### Added
 
 - Intro: [What is Vim?](README.md#what-is-vim)
 - Intro: [First steps](README.md#first-steps)
 - Intro: [What kind of Vim am I running?](README.md#what-kind-of-vim-am-i-running)
 - Intro: [Cheatsheets](README.md#cheatsheets)
-- Intro: [The Vim Philosphy](README.md#the-vim-philosophy)
+- Intro: [The Vim Philosophy](README.md#the-vim-philosophy)
 - Intro: [Minimal vimrc](README.md#minimal-vimrc)
+- Basics: [Argument list?](README.md#argument-list)
 - Basics: [Marks?](README.md#marks)
 - Basics: [Changelist?](README.md#changelist)
 - Basics: [Changelist? Jumplist?](README.md#changelist-jumplist)
@@ -22,6 +25,8 @@ All notable changes to this project will be documented in this file.
 - Basics: [Completion?](README.md#completion)
 - Basics: [Undo tree?](README.md#undo-tree)
 - Commands: [:redir](README.md#redir)
+- Commands: [:normal and :execute](README.md#normal-and-execute)
+- Commands: [:global](README.md#global)
 - Tips: [Saner command-line history](README.md#saner-command-line-history)
 - Tips: [Reload a file on saving](README.md#reload-a-file-on-saving)
 - Tips: [Smarter cursorline](README.md#smarter-cursorline)
@@ -45,6 +50,10 @@ All notable changes to this project will be documented in this file.
 - Misc: [Why hjkl for navigation?](README.md#why-hjkl-for-navigation)
 - Misc: [Standard plugins](README.md#standard-plugins)
 - Misc: [Map CapsLock to Control](README.md#map-capslock-to-control)
+- Neovim: [Terminal emulator](content/neovim.md#terminal-emulator)
+- Neovim: [Configuration](content/neovim.md#configuration)
+- Neovim: [Change cursor style dependent on mode](content/neovim.md#change-cursor-style-dependent-on-mode)
+- Neovim: [Additional resources](content/neovim.md#additional-resources)
 
 ### Changed
 
@@ -80,6 +89,7 @@ All notable changes to this project will be documented in this file.
 
 First release!
 
-[Unreleased]: https://github.com/mhinz/vim-galore/compare/v1.1...HEAD
+[Unreleased]: https://github.com/mhinz/vim-galore/compare/v1.2...HEAD
+[1.2]: https://github.com/mhinz/vim-galore/compare/v1.1...v1.2
 [1.1]: https://github.com/mhinz/vim-galore/compare/v1.0...v1.1
 [1.0]: https://github.com/mhinz/vim-galore/compare/69677e2...v1.0
