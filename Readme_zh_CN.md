@@ -1,9 +1,10 @@
+[![vim-galore](https://cdn.rawgit.com/mhinz/vim-galore/master/media/badge-awesome.svg)](https://github.com/sindresorhus/awesome)
 ![vim-galore](https://raw.githubusercontent.com/mhinz/vim-galore/master/pics/vim-galore.png)
 
 ---
 
-请注意,我刚刚开始写这一份指南,新的资料每天都会被添加.你可以在这里发现将要被添加的议题:
-[issues](https://github.com/mhinz/vim-galore/issues).谢谢!
+想要我写一份特定的主题？为那个主题创建一个
+[issue](https://github.com/mhinz/vim-galore/issues) 或者在 [推特](https://twitter.com/_mhinz_)上告诉我. 谢谢!
 
 ---
 
