@@ -59,7 +59,7 @@
 - [快速编辑自定义宏](#quickly-edit-your-macros)
 - [快速跳转到源(头)文件](#quickly-jump-to-header-or-source-file)
 - [在GUI中快速改变字体大小](#quickly-change-font-size-in-gui)
-- [根据模式改变光标类型](#change-cursor-style-in-insert-mode)
+- [根据模式改变光标类型](#change-cursor-style-dependent-on-mode)
 - [Don't lose selection when shifting sidewards](#dont-lose-selection-when-shifting-sidewards)
 
 #### [Commands](#commands-1)
