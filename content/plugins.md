@@ -1,5 +1,33 @@
 ## List of plugins
 
+#### [By topic](#by-topic-1)
+
+- [Alignment](#alignment)
+- [Code completion](#code-completion)
+- [Commenters](#commenters)
+- [Delimiter](#delimiter)
+- [Fuzzy finders](#fuzzy-finders)
+- [Grep tools](#grep-tools)
+- [Navigation](#navigation)
+- [Statusline](#statusline)
+- [Taking notes](#taking-notes)
+- [Tmux](#tmux)
+- [Undo history](#undo-history)
+- [Version control](#version-control)
+- [Misc](#misc)
+
+#### [By filetype](#by-filetype-1)
+
+- [C and C++](#c-and-c)
+- [Clojure](#clojure)
+- [HTML](#html)
+- [Java](#java)
+- [Javascript](#javascript)
+- [Lua](#lua)
+- [TeX](#tex)
+
+## By topic
+
 #### Alignment
 
 - [easy-align](https://github.com/junegunn/vim-easy-align)
@@ -9,6 +37,7 @@
 
 - [neocomplete](https://github.com/Shougo/neocomplete.vim)
 - [supertab](https://github.com/ervandew/supertab)
+- [vimcompletesme](https://github.com/ajh17/VimCompletesMe)
 - [youcompleteme](https://github.com/Valloric/YouCompleteMe)
 
 #### Commenters
@@ -79,10 +108,12 @@ Also see [fuzzy finders](#fuzzy-finders).
 
 #### Version control
 
+- [agit](https://github.com/cohama/agit.vim)
 - [fugitive](https://github.com/tpope/vim-fugitive)
 - [gist-vim](https://github.com/mattn/gist-vim)
 - [gitgutter](https://github.com/airblade/vim-gitgutter)
 - [github-dashboard](https://github.com/junegunn/vim-github-dashboard)
+- [github-issues](https://github.com/jaxbot/github-issues.vim)
 - [gitv](https://github.com/gregsexton/gitv)
 - [gv](https://github.com/junegunn/gv.vim)
 - [lawrencium](https://bitbucket.org/ludovicchabant/vim-lawrencium)
@@ -101,9 +132,59 @@ Also see [fuzzy finders](#fuzzy-finders).
 - [indentline](https://github.com/Yggdroot/indentLine)
 - [multiple-cursors](https://github.com/terryma/vim-multiple-cursors)
 - [nrrwrgn](https://github.com/chrisbra/NrrwRgn)
+- [online-thesaurus](https://github.com/beloglazov/vim-online-thesaurus)
 - [projectionist](https://github.com/tpope/vim-projectionist)
 - [rsi](https://github.com/tpope/vim-rsi)
 - [splitjoin](https://github.com/AndrewRadev/splitjoin.vim)
 - [startify](https://github.com/mhinz/vim-startify)
 - [surround](https://github.com/tpope/vim-surround)
+- [targets](https://github.com/wellle/targets.vim)
 - [unicode.vim](https://github.com/chrisbra/unicode.vim)
+
+## By filetype
+
+#### C and C++
+
+- [a](https://github.com/vim-scripts/a.vim)
+- [clang_complete](https://github.com/Rip-Rip/clang_complete)
+- [color_coded](https://github.com/jeaye/color_coded.git)
+- [lh-cpp](https://github.com/LucHermitte/lh-cpp)
+
+#### Clojure
+
+- [clojure-highlight](https://github.com/guns/vim-clojure-highlight)
+- [fireplace](https://github.com/tpope/vim-fireplace)
+- [paredit](https://github.com/kovisoft/paredit)
+- [rainbow_parentheses](https://github.com/junegunn/rainbow_parentheses.vim)
+- [salve](https://github.com/tpope/vim-salve)
+- [sexp-mappings-for-regular-people](https://github.com/tpope/vim-sexp-mappings-for-regular-people)
+- [sexp](https://github.com/guns/vim-sexp)
+
+#### HTML
+
+- [emmet](https://github.com/mattn/emmet-vim)
+- [html5](https://github.com/othree/html5.vim)
+
+#### Java
+
+- [javacomplete2](https://github.com/artur-shaik/vim-javacomplete2)
+
+#### Javascript
+
+- [es.next.syntax](https://github.com/othree/es.next.syntax.vim)
+- [esformatter](https://github.com/millermedeiros/vim-esformatter)
+- [javascript-libraries-syntax](https://github.com/othree/javascript-libraries-syntax.vim)
+- [javascript-syntax](https://github.com/jelera/vim-javascript-syntax)
+- [javascript](https://github.com/pangloss/vim-javascript)
+- [node-vim-debugger](https://github.com/sidorares/node-vim-debugger)
+- [node](https://github.com/moll/vim-node)
+- [tern_for_vim](https://github.com/ternjs/tern_for_vim)
+
+#### Lua
+
+- [lua-ftplugin](https://github.com/xolox/vim-lua-ftplugin)
+- [lua-inspect](https://github.com/xolox/vim-lua-inspect)
+
+#### TeX
+
+- [vimtex](https://github.com/lervag/vimtex)

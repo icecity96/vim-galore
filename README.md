@@ -1,17 +1,19 @@
+[![vim-galore](https://cdn.rawgit.com/mhinz/vim-galore/master/media/badge-awesome.svg)](https://github.com/sindresorhus/awesome)
+
 ![vim-galore](https://raw.githubusercontent.com/mhinz/vim-galore/master/media/vim-galore.png)
 
 ---
 
-Please keep in mind that I just started writing this guide and new things get
-added every day. Things about to be added can be found here:
-[issues](https://github.com/mhinz/vim-galore/issues). Thanks!
+Want me to write about a certain topic? Create an
+[issue](https://github.com/mhinz/vim-galore/issues) for it or tell [me on
+Twitter](https://twitter.com/_mhinz_). Thanks!
 
 ---
 
 #### [Intro](#intro-1)
 
 - [What is Vim?](#what-is-vim)
-- [The Vim Philosphy](#the-vim-philosophy)
+- [The Vim Philosophy](#the-vim-philosophy)
 - [First steps](#first-steps)
 - [Minimal vimrc](#minimal-vimrc)
 - [What kind of Vim am I running?](#what-kind-of-vim-am-i-running)
@@ -21,6 +23,7 @@ added every day. Things about to be added can be found here:
 
 - [Buffers, windows, tabs?](#buffers-windows-tabs)
 - [Active, loaded, listed, named buffers?](#active-loaded-listed-named-buffers)
+- [Argument list?](#argument-list)
 - [Mappings?](#mappings)
 - [Mapleader?](#mapleader)
 - [Registers?](#registers)
@@ -65,7 +68,7 @@ added every day. Things about to be added can be found here:
 - [Quickly edit your macros](#quickly-edit-your-macros)
 - [Quickly jump to header or source file](#quickly-jump-to-header-or-source-file)
 - [Quickly change font size in GUI](#quickly-change-font-size-in-gui)
-- [Change cursor style in insert mode](#change-cursor-style-in-insert-mode)
+- [Change cursor style dependent on mode](#change-cursor-style-dependent-on-mode)
 - [Don't lose selection when shifting sidewards](#dont-lose-selection-when-shifting-sidewards)
 - [Reload a file on saving](#reload-a-file-on-saving)
 - [Smarter cursorline](#smarter-cursorline)
@@ -73,6 +76,8 @@ added every day. Things about to be added can be found here:
 
 #### [Commands](#commands-1)
 
+- [:global](#global) - Execute a command on all matching lines.
+- [:normal and :execute](#normal-and-execute) - The scripting dream team.
 - [:redir](#redir) - Redirect messages.
 
 #### [Debugging](#debugging-1)
@@ -105,19 +110,7 @@ added every day. Things about to be added can be found here:
 
 #### [List of plugins](content/plugins.md)
 
-- [Alignment](content/plugins.md#alignment)
-- [Code completion](content/plugins.md#code-completion)
-- [Commenters](content/plugins.md#commenters)
-- [Delimiter](content/plugins.md#delimiter)
-- [Fuzzy finders](content/plugins.md#fuzzy-finders)
-- [Grep tools](content/plugins.md#grep-tools)
-- [Navigation](content/plugins.md#navigation)
-- [Statusline](content/plugins.md#statusline)
-- [Taking notes](content/plugins.md#taking-notes)
-- [Tmux](content/plugins.md#tmux)
-- [Undo history](content/plugins.md#undo-history)
-- [Version control](content/plugins.md#version-control)
-- [Misc](content/plugins.md#misc)
+#### [Neovim](content/neovim.md)
 
 ---
 
@@ -226,7 +219,7 @@ In case you're interested, here's [my
 vimrc](https://github.com/mhinz/dotfiles/blob/master/vim/vimrc).
 
 **TIP**: Most plugin authors maintain several plugins and also publish their
-vimrc on Github (often in a repositoy called "vim-config" or "dotfiles"), so
+vimrc on Github (often in a repository called "vim-config" or "dotfiles"), so
 whenever you find a plugin you like, look up its maintainer's Github page and
 look through the repositories.
 
@@ -273,6 +266,7 @@ Related help:
 :h :version
 :h feature-list
 :h +feature-list
+:h has-patch
 ```
 
 #### Cheatsheets
@@ -335,6 +329,37 @@ unlisted buffers can be shown via `:ls!`.
 associated filename. E.g. `:enew` will create an unnamed scratch buffer. Add
 some text and write it to disk via `:w /tmp/foo`, and it will become a named
 buffer.
+
+#### Argument list?
+
+The [global buffer list](#buffers-windows-tabs) is a Vim thing. Before that, in
+vi, there only used to be the argument list, which is also available in Vim.
+
+Every filename given to Vim on the shell command-line, is remembered in the
+argument list. There can be multiple argument lists: by default all arguments
+are put into the global argument list, but you can use `:arglocal` to create a
+new argument list that is local to the window.
+
+List the current arguments with `:args`. Switch between files from the argument
+list with `:next`, `:previous`, `:first`, `:last` and friends. Alter it with
+`:argadd`, `:argdelete` or `:args` with a list of files.
+
+If you should prefer using the buffer or argument list for working with files is
+a matter of taste. My impression is that most people use the buffer list
+exclusively.
+
+Nevertheless there is one huge use case for the argument list: batch processing
+via `:argdo`! A simple refactoring example:
+
+```vim
+:args **/*.[ch]
+:argdo %s/foo/bar/ge | update
+```
+
+This replaces all occurrences of "foo" by "bar" in all C source and header files
+from the current directory and below.
+
+Related help: `:h argument-list`
 
 #### Mappings?
 
@@ -573,7 +598,7 @@ Put `'`/`g'` or `` ` ``/`` g` `` in front of a mark to form a motion.
 
 Use `mm` to remember the current position with mark "m". Move around the file
 and then jump back via `'m` (first non-blank) or `` `m `` (exact column).
-Lowercase marks will be remembed after exiting Vim, if you tell your viminfo
+Lowercase marks will be remembered after exiting Vim, if you tell your viminfo
 file to do so, see `:h viminfo-'`.
 
 Use `mM` to remember the current position with file mark "M". Switch to another
@@ -1348,7 +1373,7 @@ If you happen to access one of the two registers all the time, consider using:
 ```vim
 set clipboard^=unnamed      " * register
 " or
-set clipboard^=unammedplus  " + register
+set clipboard^=unnamedplus  " + register
 ```
 
 (The `^=` is used to prepend to the default value, `:h :set^=`.)
@@ -1361,7 +1386,7 @@ Related help:
 
 ```vim
 :h clipboard-unnamed
-:h clipboard-unammedplus
+:h clipboard-unnamedplus
 ```
 
 #### Restore cursor position when opening file
@@ -1600,7 +1625,7 @@ visual mode and then hit `:`. There's also an operator `!` that takes a motion.
 E.g. `!ip!sort` will sort the lines of the current paragraph.
 
 A good use case for filtering is the [Go programming
-language](https://golang.org). The indentation is pretty opiniated, it even
+language](https://golang.org). The indentation is pretty opinionated, it even
 comes with a filter called `gofmt` for indenting Go source code properly. So
 plugins for Go often provide helper commands called `:Fmt` that basically do
 `:%!gofmt`, so they indent all lines in the file.
@@ -1727,13 +1752,12 @@ These mappings also take a count, so `2]e` moves the current line 2 lines below.
 
 #### Quickly add empty lines
 
-This is surely no must-have, but I prefer the following mappings over
-`o<esc>`/`O<esc>`:
-
 ```vim
-nnoremap [<space>  :put! =''<cr>
-nnoremap ]<space>  :put =''<cr>
+nnoremap [<space>  :<c-u>put! =repeat(nr2char(10), v:count1)<cr>'[
+nnoremap ]<space>  :<c-u>put =repeat(nr2char(10), v:count1)<cr>
 ```
+
+Now `5[<space>` inserts 5 blank lines above the current line.
 
 #### Quickly edit your macros
 
@@ -1744,10 +1768,13 @@ register.
 I often use this to correct typos I did while recording a macro.
 
 ```vim
-nnoremap <leader>m  :<c-u><c-r>='let @'. v:register .' = '. string(getreg(v:register))<cr><c-f><left>
+nnoremap <leader>m  :<c-u><c-r><c-r>='let @'. v:register .' = '. string(getreg(v:register))<cr><c-f><left>
 ```
 
 Use it like this `<leader>m` or `"q<leader>m`.
+
+Notice the use of `<c-r><c-r>` to make sure that the `<c-r>` is inserted
+literally. See `:h c_^R^R`.
 
 #### Quickly jump to header or source file
 
@@ -1772,7 +1799,7 @@ command! Bigger  :let &guifont = substitute(&guifont, '\d\+$', '\=submatch(0)+1'
 command! Smaller :let &guifont = substitute(&guifont, '\d\+$', '\=submatch(0)-1', '')
 ```
 
-#### Change cursor style in insert mode
+#### Change cursor style dependent on mode
 
 I like to use a block cursor in normal mode, i-beam cursor in insert mode, and
 underline cursor in replace mode. Also when using tmux in the middle.
@@ -1854,7 +1881,52 @@ set complete-=t   " disable searching tags
 
 ## Commands
 
-Useful commands that are good to know.
+Useful commands that are good to know. Use `:h :<command name>` to learn more
+about them, e.g. `:h :global`.
+
+#### :global
+
+Execute a command on all matching lines. E.g. `:global /regexp/ print` will use
+`:print` on all lines that contain "regexp".
+
+Fun fact: You probably all know good old grep, the filter program written by Ken
+Thompson. What does it do? It prints all lines matching a certain regular
+expression! Now guess the short form of `:global /regexp/ print`? That's right!
+It's `:g/re/p`. Ken Thompson was inspired by vi's `:global` when he wrote grep.
+
+Despite its name, `:global` only acts on all lines by default, but it also takes
+a range. Assume you want use `:delete` on all lines from the current line to the
+next blank line (matched by the regular expression `^$`) that contain "foo":
+
+```vim
+:,/^$/g/foo/d
+```
+
+#### :normal and :execute
+
+These commands are commonly used in Vim scripts.
+
+With `:normal` you can do normal mode mappings from the command-line. E.g.
+`:normal! 4j` will make the cursor go down 4 lines (without using any custom
+mapping for "j" due to the "!").
+
+Mind that `:normal` also takes a count, so `:%norm! Iabc` would prepend "abc" to
+every line.
+
+With `:execute` you can mix commands with expressions. Assume you edit a C
+source file and want to switch to its header file:
+
+```vim
+:execute 'edit' fnamemodify(expand('%'), ':r') . '.h'
+```
+
+Both commands are often used together. Assume you want to make the cursor go
+down "n" lines:
+
+```vim
+:let n = 4
+:execute 'normal!' n . 'j'
+```
 
 #### :redir
 
@@ -1891,8 +1963,10 @@ it to the [vim_dev](https://groups.google.com/forum/#!forum/vim_dev) mailing
 list. Most of the time the issue won't be resolved at this time and you'll have to
 further investigate.
 
-Often plugin updates introduce new/changed/faulty behaviour. If you're using a
-plugin manager, comment them out until you find the culprit.
+Plugins often introduce new/changed/faulty behaviour. E.g. if it happens on
+saving, check `:verb au BufWritePost` to get a list of potential culprits.
+
+If you're using a plugin manager, comment them out until you find the culprit.
 
 Issue is still not resolved? If it's not a plugin, it must be your other
 settings, so maybe your options or autocmds etc.
@@ -2275,13 +2349,13 @@ plugin that does it for you:
 Additional read from the same author as the plugin:
 [here](http://cirw.in/blog/bracketed-paste).
 
-**Neovim**: Neovim tries to make all of this much more seemless and sets
+**Neovim**: Neovim tries to make all of this much more seamless and sets
 bracketed paste mode automatically if the terminal emulator supports it.
 
 #### Delays when using escape key in terminal
 
 If you live in the command-line, you probably use a so-called _terminal
-emulator_ like xterm, gnome-terminanal, iTerm2, etc. (opposed to a real
+emulator_ like xterm, gnome-terminal, iTerm2, etc. (opposed to a real
 [terminal](https://en.wikipedia.org/wiki/Computer_terminal)).
 
 Like their ancestors, terminal emulators use [escape
@@ -2345,6 +2419,7 @@ set -sg escape-time 0
 
 Here's a list of commonly used colorschemes:
 
+- [acme-colors](https://github.com/plan9-for-vimspace/acme-colors)
 - [base16](https://github.com/chriskempson/base16-vim)
 - [gotham](https://github.com/whatyouhide/vim-gotham)
 - [gruvbox](https://github.com/morhetz/gruvbox)
@@ -2357,4 +2432,5 @@ Here's a list of commonly used colorschemes:
 - [solarized](https://github.com/altercation/vim-colors-solarized) (or a lighter variant: [flattened](https://github.com/romainl/flattened))
 - [tomorrow](https://github.com/chriskempson/vim-tomorrow-theme)
 - [vividchalk](https://github.com/tpope/vim-vividchalk)
+- [yowish](https://github.com/kabbamine/yowish.vim)
 
