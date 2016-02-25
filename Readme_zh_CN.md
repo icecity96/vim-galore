@@ -61,53 +61,48 @@
 - [快速跳转到源(头)文件](#quickly-jump-to-header-or-source-file)
 - [在GUI中快速改变字体大小](#quickly-change-font-size-in-gui)
 - [根据模式改变光标类型](#change-cursor-style-dependent-on-mode)
-- [Don't lose selection when shifting sidewards](#dont-lose-selection-when-shifting-sidewards)
+- [不要在水平滑动的时候失去选择](#dont-lose-selection-when-shifting-sidewards)
+- [重新载入保存文件](#reload-a-file-on-saving)
+- [智能当前行](#smarter-cursorline)
+- [更快的关键字补全](#faster-keyword-completion)
 
-#### [Commands](#commands-1)
+#### [命令](#commands-1)
 
-- [:redir](#redir) - Redirect messages.
+- [:global](#global) - 在所有匹配行执行命令
+- [:normal and :execute](#normal-and-execute) - 脚本梦之队
+- [:redir](#redir) - 重定向消息
 
-#### [Debugging](#debugging-1)
+#### [调试](#debugging-1)
 
-- [General tips](#general-tips)
-- [Profiling startup time](#profiling-startup-time)
-- [Profiling at runtime](#profiling-at-runtime)
-- [Verbosity](#verbosity)
-- [Debugging Vim scripts](#debugging-vim-scripts)
-- [Debugging syntax files](#debugging-syntax-files)
+- [常规建议](#general-tips)
+- [启动时刨视](#profiling-startup-time)
+- [运行时刨视](#profiling-at-runtime)
+- [详细模式](#verbosity)
+- [vim脚本调试](#debugging-vim-scripts)
+- [语法文件调试](#debugging-syntax-files)
 
-#### [Miscellaneous](#miscellaneous-1)
+#### [杂项](#miscellaneous-1)
 
-- [Additional resources](#additional-resources)
-- [Vim distributions](#vim-distributions)
-- [Easter eggs](#easter-eggs)
-- [Why hjkl for navigation?](#why-hjkl-for-navigation)
+- [附加资源](#additional-resources)
+- [Vim 发布](#vim-distributions)
+- [标准插件](#standard-plugins)
+- [将Control映射到CapsLock](#map-capslock-to-control)
+- [复活节彩蛋](#easter-eggs)
+- [为何使用hjkl](#why-hjkl-for-navigation)
 
-#### [Quirks](#quirks-1)
+#### [奇事](#quirks-1)
 
-- [Editing small files is slow](#editing-small-files-is-slow)
-- [Editing huge files is slow](#editing-huge-files-is-slow)
-- [Newline used for NUL](#newline-used-for-nul)
-- [Bracketed paste (or why do I have to set 'paste' all the time?)](#bracketed-paste-or-why-do-i-have-to-set-paste-all-the-time)
-- [Delays when using escape key in terminal](#delays-when-using-escape-key-in-terminal)
+- [编辑小文件很慢](#editing-small-files-is-slow)
+- [编辑打文件很慢](#editing-huge-files-is-slow)
+- [新行用于NUL](#newline-used-for-nul)
+- [相同部分粘贴 (要不为什么我总要设置‘粘贴’?)](#bracketed-paste-or-why-do-i-have-to-set-paste-all-the-time)
+- [在终端使用Esc延时](#delays-when-using-escape-key-in-terminal)
 
-#### [List of colorschemes](#list-of-colorschemes-1)
+#### [配色主题](#list-of-colorschemes-1)
 
-#### [List of plugins](#list-of-plugins-1)
+#### [插件列表](content/plugins.md)
 
-- [Alignment](#alignment)
-- [Code completion](#code-completion)
-- [Commenters](#commenters)
-- [Delimiter](#delimiter)
-- [Fuzzy finders](#fuzzy-finders)
-- [Grep tools](#grep-tools)
-- [Navigation](#navigation)
-- [Statusline](#statusline)
-- [Taking notes](#taking-notes)
-- [Tmux](#tmux)
-- [Undo history](#undo-history)
-- [Version control](#version-control)
-- [Misc](#misc)
+#### [Neovim](content/neovim.md)
 
 ---
 
@@ -120,7 +115,7 @@ Moolenaar](https://en.wikipedia.org/wiki/Bram_Moolenaar) 于1991年发布初始�
 
 该项目托管在 [vim.org](http://www.vim.org/index.php).
 
-获取Vim: 使用你最喜欢的包管理器安装,或者从vim.org [下载](http://www.vim.org/download.php) .
+获取Vim: 使用你最喜欢的包管理器安装,或者在vim.org上[下载](http://www.vim.org/download.php) .
 
 讨论使用相关问题最好在
 [vim_use](https://groups.google.com/forum/#!forum/vim_use) 邮件列表或者使用IRC ([Freenode](https://freenode.net)) 的 `#vim` 频道.
@@ -131,6 +126,32 @@ Moolenaar](https://en.wikipedia.org/wiki/Bram_Moolenaar) 于1991年发布初始�
 阅读 [Why, oh WHY, do those #?@! nutheads use
 vi?](http://www.viemu.com/a-why-vi-vim.html), 对Vim有一个大致的了解.
 
+
+#### Vim 哲学
+
+Vim 坚持着模式编辑的理念. 这意味着他提供了多种模式，并根据模式，同一按键有不同含义。
+You
+navigate files in _normal mode_, you insert text in _insert mode_, you select
+lines in _visual mode_, you access commands in _command-line mode_ and so on.
+This might sound complicated at first, but has a huge advantage: you don't have
+to break your fingers by holding several keys at once, most of the time you
+simply press them one after the other. The more common the task, the fewer keys
+are needed.
+
+A related concept that works well with modal editing are operators and motions.
+_Operators_ start a certain action, e.g. changing, removing, or selecting text.
+Afterwards you specify the region of text you want to act on using a _motion_.
+To change everything between parentheses, use `ci(` (read _change inner
+parentheses_). To remove an entire paragraph of text, use `dap` (read _delete
+around paragraph_).
+
+If you see advanced Vim users working, you'll notice that they speak the
+_language of Vim_ as well as pianists handle their instruments. Complex
+operations are done using only a few key presses. They don't even think about it
+anymore as [muscle memory](https://en.wikipedia.org/wiki/Muscle_memory) took
+over already. This reduces [cognitive
+load](https://en.wikipedia.org/wiki/Cognitive_load) and helps focusing on the
+actual task.
 #### 开始
 
 Vim自带一个交互式的教程,内含你需要了解的最基础的信息,你可以通过运行以下命令打开教程:
