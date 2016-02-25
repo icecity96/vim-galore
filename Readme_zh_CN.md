@@ -129,29 +129,15 @@ vi?](http://www.viemu.com/a-why-vi-vim.html), 对Vim有一个大致的了解.
 
 #### Vim 哲学
 
-Vim 坚持着模式编辑的理念. 这意味着他提供了多种模式，并根据模式，同一按键有不同含义。
-You
-navigate files in _normal mode_, you insert text in _insert mode_, you select
-lines in _visual mode_, you access commands in _command-line mode_ and so on.
-This might sound complicated at first, but has a huge advantage: you don't have
-to break your fingers by holding several keys at once, most of the time you
-simply press them one after the other. The more common the task, the fewer keys
-are needed.
+Vim 坚持着模式编辑的理念. 这意味着他提供了多种模式，并根据模式，同一按键有不同含义。你可以在 _普通模式_下浏览文件, 在_ 插入模式_下插入文本, 在_可视模式_下选择行, 在_命令模式_下执行命令.
+这一开始听起来可能很复杂, 但是这有一个很大的优点: 你不需要让你的手指因为一次要同时按住很多键而受苦, 大多数时候你只要一个接着一个按.越常用的任务，所需要的按键数量越少. 
 
-A related concept that works well with modal editing are operators and motions.
-_Operators_ start a certain action, e.g. changing, removing, or selecting text.
-Afterwards you specify the region of text you want to act on using a _motion_.
-To change everything between parentheses, use `ci(` (read _change inner
-parentheses_). To remove an entire paragraph of text, use `dap` (read _delete
+动作和操作符是一个能在模式编辑中表现良好的概念._操作符_开始一些行为, e.g. 修改, 删除, 或者选择文本.之后你要用_动作_选择你要使用那些行为的文本区域。
+为了去改变括号内的内容, 使用 `ci(` (read _change inner
+parentheses_). 删除整个段落的内容, 使用 `dap` (read _delete
 around paragraph_).
 
-If you see advanced Vim users working, you'll notice that they speak the
-_language of Vim_ as well as pianists handle their instruments. Complex
-operations are done using only a few key presses. They don't even think about it
-anymore as [muscle memory](https://en.wikipedia.org/wiki/Muscle_memory) took
-over already. This reduces [cognitive
-load](https://en.wikipedia.org/wiki/Cognitive_load) and helps focusing on the
-actual task.
+如果你能看见Vim高级用户工作,你会发现他们使用Vim语言就像钢琴师处理自己的乐器一样。复杂的操作只需要几个案件就能完成。他们甚至不用刻意去想，因为这已经成为[肌肉记忆](https://en.wikipedia.org/wiki/Muscle_memory)了. 这减少[认识负荷](https://en.wikipedia.org/wiki/Cognitive_load)并帮助人们专注与实际任务.
 #### 开始
 
 Vim自带一个交互式的教程,内含你需要了解的最基础的信息,你可以通过运行以下命令打开教程:
