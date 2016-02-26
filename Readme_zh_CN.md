@@ -152,24 +152,18 @@ $ vimtutor
 
 Vim 基于 [Stevie](https://en.wikipedia.org/wiki/Stevie_(text_editor)), a
 [vi](https://en.wikipedia.org/wiki/Vi) 克隆, 支持两种操作模式:
-"compatible" 和 "nocompatible". 使用compatible 模式 vim 意味着 使用vi默认设置
-, 相对于VIM 默认设置. 只要你没有新建一个用户的vimrc 或者使用 `vim -N` 命令启动VIM ， compatible 模式将被使用! Don't
-use Vim in compatible mode. Just don't.
+"compatible" 和 "nocompatible". 使用兼容模式 vim 意味着 使用vi默认设置
+, 相对于VIM 默认设置. 只要你没有新建一个用户的vimrc 或者使用 `vim -N` 命令启动VIM ， 兼容模式将被使用! 不要使用VIM的兼容模式.
 
-Next steps:
+下一步:
 
-1. Create your own [vimrc](#minimal-vimrc). TODO
-2. Have some [cheatsheets](#cheatsheets) ready for the first weeks.
-3. Read through the [basics](#basics-1) section to learn what is even possible.
-4. Learn on demand! You never finish learning Vim. If you encounter any
-   problems, just look for it on the internet. Your problem was solved already.
-   Vim comes with great documentation and knowing how to navigate it is a must:
-   [Getting help offline](#getting-help-offline).
-5. Have a look at the [additional resources](#additional-resources).
+1. 创建你自己的[vimrc](#minimal-vimrc). TODO
+2. 在第一周准备 [备忘录](#cheatsheets).
+3. 通读[基础](#basics-1) 一节知道做什么是可能的.
+4. 了解需求! 你永远不能够学完VIM. 如果你遇到了任何问题，那就在网络上去寻找。你的问题可能早就被解决了。VIM 拥有大量的参考文档，所有知道如何去利用这些参考文档就很有必要了:[获取离线帮助](#getting-help-offline).
+5. 浏览[附加资源](#additional-resources).
 
-One last advice: Please learn how to use Vim properly before starting to add all
-kinds of hyped [plugins](#managing-plugins) that only implement features that
-Vim already supports natively.
+最后一个建议: 请先学会正确使用VIM在你开始使用那些只是实现VIM原生功能的[插件](#managing-plugins).
 
 #### What kind of Vim am I running?
 
