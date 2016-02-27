@@ -165,35 +165,38 @@ Vim 基于 [Stevie](https://en.wikipedia.org/wiki/Stevie_(text_editor)), a
 
 最后一个建议: 请先学会正确使用VIM在你开始使用那些只是实现VIM原生功能的[插件](#managing-plugins).
 
+#### Minimal vimrc
+
+用户的vimrc配置文件可以放在`~/.vimrc`或者为了更好的分离放在`~/.vim/vimrc`. 后者更容易让整个配置处于版本控制之下并且上传, 比方说github.
+
+你可以在网上发现许多精简的vimrc配置文件, 我的版本可能并不是最简单的版本, 但是我的版本提供了一套我认为良好的，理智的设置.
+
+最终你需要阅读完那些设置，然后自行决定需要使用哪些. :-)
+
+vimrc地址: [minimal-vimrc](content/minimal-vimrc.vim)
+
+如果你有兴趣, 这里是我的 [vimrc](https://github.com/mhinz/dotfiles/blob/master/vim/vimrc).
+
+**建议**: 大多数插件作者都维护一些插件并且将他们的vimrc放在Github上展示(通常放在叫做"vim-config" 或者 "dotfiles"的仓库中), 所以当你发现你喜欢的插件时, 去插件维护者的 Github 主页看看有没有这样的仓库.
+
 #### What kind of Vim am I running?
 
-Looking at `:version` will give you all the information you need to know about
-how the currently running Vim binary was compiled.
+使用`:version`命令将给你展示你所需要知道的当前正在运行的vim是如何编译的的所有信息.
 
-The first line tells you when the binary was compiled and the version, e.g. 7.4.
-One of the next lines states `Included patches: 1-1051`, which is the patch
-level. Thus your exact Vim version is 7.4.1051.
+第一行告诉你这个二进制文件的编译时间和版本号 e.g. 7.4.
+接下来的一行呈现`Included patches: 1-1051`, 这是补丁版本. 因此你VIM确切的版本号是7.4.1051.
 
-Another line states something like `Tiny version without GUI` or `Huge version
-with GUI`. The obvious information from that is whether your Vim includes GUI
-support, e.g. for starting `gvim` from the shell or running `:gui` from Vim
-within a terminal emulator. The other important information is the `Tiny` and
-`Huge`. Vim distinguishes between feature sets called `tiny`, `small`, `normal`,
-`big`, and `huge`, all enabling different subsets of features.
+另一行显示着一些向`Tiny version without GUI` 或者`Huge version
+with GUI`的信息. 很显然这些信息告诉你你的VIM是否包含着GUI支持, e.g. 从Shell中运行`gvim` 或者从VIM内部的终端仿真器运行`:gui` . 另一个重要的信息是 `Tiny` 和`Huge`. Vim的特性集区分被叫做`tiny`, `small`, `normal`,
+`big`, and `huge`, 所有的都实现不同的功能子集.
 
-The majority of `:version` output is consumed by the feature list itself.
-`+clipboard` means the clipboard feature was compiled in, `-clipboard` means it
-wasn't compiled in.
+`:version` 主要的输出内容是特性列表.`+clipboard` 意味这剪贴板功能被编译了, `-clipboard` 意味着剪贴板特性没有被编译.
 
-A few Vim features need to be compiled in for them to work. E.g. for `:prof` to
-work, you need a Vim with a huge feature set, because that set enables the
-`+profile` feature.
+为了让他们工作一些VIM功能需要被编译. E.g. 为了让`:prof`工作, 你需要带有huge 功能集合的VIM, 因为那个功能集确保了`+profile` 特性.
 
-If that's not the case and you installed Vim from a package manager, make sure
-to install a package called `vim-x`, `vim-x11`, `vim-gtk`, `vim-gnome` or
-similar, since these packages usually come with the huge feature set.
+如果你的输出情况并不是那样并且你是从包管理器安装Vim的, 确保你安装了`vim-x`, `vim-x11`, `vim-gtk`, `vim-gnome` 这些包或者相似的, 因为这些包通常带有较大的功能集.
 
-You can also test for the version or features programmatically:
+你也可以测试你的VIM的版本或者编程功能：
 
 ```viml
 " Do something if running at least Vim 7.4.42 with +profile enabled.
@@ -202,7 +205,7 @@ if (v:version > 704 || v:version == 704 && has('patch42')) && has('profile')
 endif
 ```
 
-Related help:
+相关帮助:
 
 ```
 :h :version
