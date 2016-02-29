@@ -215,7 +215,7 @@ endif
 
 #### Cheatsheets
 
-To avoid copyright issues, I'll just link external URLs:
+为了避免版权问题, 我只贴出链接:
 
 - http://people.csail.mit.edu/vgod/vim/vim-cheat-sheet-en.png
 - https://cdn.shopify.com/s/files/1/0165/4168/files/preview.png
@@ -227,52 +227,31 @@ To avoid copyright issues, I'll just link external URLs:
 
 #### Buffers, windows, tabs?
 
-Vim is a text editor. Every time text is shown, the text is part of a **buffer**.
-Each file will be opened in its own buffer. Plugins show stuff in their own
-buffers etc.
+Vim 是一个文本编辑器. 每次文本都是作为**缓冲区**的一部分显示的.每一份文件都是在他们自己独有的缓冲区打开的. 插件显示的东西在他们自己的缓冲区中.
 
-Buffers have many attributes, e.g. whether the text it contains is modifiable,
-or whether it is associated with a file and thus needs to be synchronized to
-disk on saving.
+缓冲区有很多属性, 比如这个缓冲区的内容是否可以修改,或者这个缓冲区是否和文件相关联，是否需要同步保存到磁盘上.
 
-**Windows** are viewports _onto_ buffers. If you want to view several files at
-the same time or even different locations of the same file, you use windows.
+**窗口** 是缓冲区的视窗. 如果你想同时查看几个文件或者查看同一文件的不同位置，那样你会需要窗口.
 
-And please, please don't call them _splits_. You can split a window in two, but
-that doesn't make them _splits_.
+请别把他们叫做_分离_. 你可以把一个窗口分割成两个, 但是这并没有让这两个窗口_分离_.
 
-Windows can be split vertically or horizontally and the heights and widths of
-existing windows can be altered, too. Therefore you can use whatever window
-layout you prefer.
+窗口可以水平或者竖直分割并且现有窗口的高度和宽度都是可以被调节设置的.因此你可以使用你喜欢的窗口布局.
 
-A **tab page** (or just tab) is a collection of windows. Thus, if you want to
-use multiple window layouts, use tabs.
+**标签页** (标签) 是窗口的集合. 因此使用标签当你想使用多种窗口布局的时候.
 
-Putting it in a nutshell, if you start Vim without arguments, you'll have one
-tab page that holds one window that shows one buffer.
+简单的说, 如果你启动VIM的时候没有附带任何参数,你会得到一个包含着一个呈现一个缓冲区的窗口的标签.
 
-By the way, the buffer list is global and you can access any buffer from any
-tab.
+顺带提一下, 缓冲区列表是全局可见的，你可以从任一一个标签中进入任何一个缓冲区.
 
 #### Active, loaded, listed, named buffers?
 
-Run Vim like this `vim file1`. The file's content will be loaded into a buffer.
-You have a **loaded buffer** now. The content of the buffer is only synchronized
-to disk (written back to the file) if you save it within Vim.
+用类似 `vim file1`的命令启动VIM. 这个文件的内容将会被加载到缓冲区.你现在有一个**载入的缓冲区**.如果你在VIM中保存这个文件，缓冲区内容将会被同步到磁盘上(写回文件中).
 
-Since the buffer is also shown in a window, it's also an **active buffer**. Now
-if you load another file via `:e file2`, `file1` will become a **hidden buffer**
-and `file2` the active one.
+由于这个缓冲区也在一个窗口上显示, 所以他也是一个**活动缓冲区**. 如果你现在通过`:e file2`命令加载另一个文件, `file1` 将会变成一个**隐藏缓冲区**,并且`file2`变成活动缓冲区.
 
-Both buffers are also **listed**, thus they will get listed in the output of
-`:ls`. Plugin buffers or help buffers are often marked as unlisted, since
-they're not regular files you usually edit with a text editor. Listed and
-unlisted buffers can be shown via `:ls!`.
+使用`:ls`我们能够得到缓冲区列表的输出. 插件缓冲区和帮助缓冲区通常被标记为列表外的缓冲区, 因为那并不是你会经常编辑的常规文件. 通过:ls!`命令可以显示被放入缓冲区列表的和未被放入列表的缓冲区.
 
-**Unnamed buffers**, also often used by plugins, are buffers that don't have an
-associated filename. E.g. `:enew` will create an unnamed scratch buffer. Add
-some text and write it to disk via `:w /tmp/foo`, and it will become a named
-buffer.
+**未命名缓冲区**是一种没有关联特定文件的缓冲区,这种缓冲区经常被插件使用. 比如`:enew`将会创建一个无名临时缓冲区. 添加一些文本然后使用`:w /tmp/foo`将他写入到磁盘, 这样这个缓冲区就会变成一个命名缓冲区.
 
 #### Mappings?
 
