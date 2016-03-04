@@ -335,37 +335,31 @@ map-modes`.
 
 #### Mapleader?
 
-The mapleader is simply a placeholder than can be used with custom mappings and
-is set to `\` by default.
+Mapleader是一个占位符，这个键可以使用自定义映射设置,默认情况下被设置为`\` .
 
 ```vim
 nnoremap <leader>h :helpgrep<space>
 ```
 
-This mapping is triggered by `\h`. If you want to use `<space>h` instead:
+按下`\h`将会触发这个映射. 如果你想使用`<space>h` 来触发:
 
 ```vim
 let mapleader = ' '
 nnoremap <leader>h :helpgrep<space>
 ```
 
-Moreover, there is `<localleader>` that is the local counterpart to `<leader>`
-and is supposed to be used for mappings that are local to the buffer, eg.
-filetype-specific plugins. It also defaults to `\`.
+除此之外, 还有个`<localleader>` ，它是`<leader>`的局部副本，并且这个支持局部于缓冲区的映射.比如针对文件类型的插件. 这个也被默认设置为`\`.
 
-**Note**: Set the mapleaders before mappings! All leader mappings that are in
-effect already, won't change just because the mapleader was changed. `:nmap
-<leader>` will show all normal mode leader mappings with the mapleader resolved
-already, so use it to double-check your mappings.
+**备注**: 使用映射之前设置 mapleaders!所有已经生效的 leader mappings, 不会仅仅因为mapleader 被改变而改变. `:nmap
+<leader>` 将会显示在普通模式下所有的使用了leader的映射, 所以使用下面命令再次确认你的映射.
 
-See `:h mapleader` and `:h maplocalleader` for more.
+使用`:h mapleader` and `:h maplocalleader`获取更多帮助.
 
 #### Registers?
 
-Registers are slots that save text. Copying text into a register is called
-**yanking** and extracting text from a register is called **pasting**.
+寄存器是一个存放文本的槽. 将文本拷贝到寄存器中叫做**抽出**,从寄存器中提取文本叫做**粘贴**.
 
-Vim provides the following registers:
+Vim提供了以下的寄存器:
 
 | Type                | Character              | Filled by? | Readonly? | Contains text from? |
 |---------------------|------------------------|------------|-----------|---------------------|
